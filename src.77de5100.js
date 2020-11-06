@@ -11216,54 +11216,110 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var jquery_1 = __importDefault(require("jquery"));
+var jquery_1 = __importDefault(require("jquery")); //Implementação Lazy Scroll por JQuery
 
-function AnimateFadeout() {
-  var documentTop = jquery_1.default(document).scrollTop();
-  var opacityLimit = window.innerHeight / 2;
-  var opacityLevel = documentTop <= opacityLimit / 2 ? (opacityLimit - documentTop) / opacityLimit : 0;
-  console.log("estou no animateTest, meu opacityLevel \xE9: " + opacityLevel + " " + documentTop);
-  var animateTarget = document.getElementById("fadeout-animate");
 
-  if (documentTop > 100) {
-    animateTarget.setAttribute("style", "opacity: " + opacityLevel);
-    animateTarget.classList.remove('animate-pulse');
-  } else {
-    animateTarget.classList.add('animate-pulse');
-  }
-}
+(function () {
+  var _a;
 
-jquery_1.default('a').on('click', function () {
-  jquery_1.default('html, body').animate({
-    scrollTop: jquery_1.default(jquery_1.default(this).attr('href')).offset().top
-  }, 825);
-  return false;
-});
-var $target = jquery_1.default('.anime'),
-    animationClass = 'anime-start';
-
-function animateScroll() {
-  var documentTop = jquery_1.default(document).scrollTop();
-  console.log(documentTop);
-  var offset = jquery_1.default(window).height() * (3 / 4);
-  $target.each(function () {
+  (_a = jquery_1.default('a')) === null || _a === void 0 ? void 0 : _a.click(function () {
     var _a;
 
-    var itemTop = (_a = jquery_1.default(this).offset()) === null || _a === void 0 ? void 0 : _a.top;
-    console.log("Offset is " + offset + "\n documentTop is " + documentTop + "\n itemTop is " + itemTop);
-
-    if (documentTop > itemTop - offset) {
-      jquery_1.default(this).addClass(animationClass);
-    } else {
-      jquery_1.default(this).removeClass(animationClass);
-    }
+    var element = jquery_1.default(this);
+    var refString = element.attr('href');
+    jquery_1.default('html, body').animate({
+      scrollTop: (_a = jquery_1.default(refString).offset()) === null || _a === void 0 ? void 0 : _a.top
+    }, 800);
+    return false;
   });
-}
+})(); //Implementação de funções vinculadas ao Scroll
 
-animateScroll();
-jquery_1.default(document).scroll(function () {
-  AnimateFadeout();
-});
+
+(function () {
+  //Fade-in borda do menu de navegação
+  function navBorderShow() {
+    var navbarBorder = document.getElementById("navbar-boder");
+    console.log("Top is: " + navbarBorder.style.marginTop);
+
+    if (navbarBorder.style.marginTop != '0px') {
+      navbarBorder.style.marginTop = '0px';
+      navbarBorder.animate([{
+        marginTop: '-60px',
+        easing: 'ease-out'
+      }, {
+        marginTop: '0px'
+      }], {
+        duration: 750,
+        iterations: 1
+      });
+    }
+  } //Fade-out Borda de Navegação
+
+
+  function navBorderHide() {
+    var navbarBorder = document.getElementById("navbar-boder");
+
+    if (navbarBorder.style.marginTop != '-60px') {
+      navbarBorder.style.marginTop = '-60px';
+      navbarBorder.animate([{
+        marginTop: '0px',
+        easing: 'ease-out'
+      }, {
+        marginTop: '-60px'
+      }], {
+        duration: 1500,
+        iterations: 1
+      });
+    }
+  } //Fade-out do título Hero Banner
+
+
+  function AnimateFadeout() {
+    var _a;
+
+    var documentTop = (_a = jquery_1.default(document)) === null || _a === void 0 ? void 0 : _a.scrollTop();
+    var opacityLimit = window.innerHeight / 2;
+    var opacityLevel = documentTop <= opacityLimit ? (opacityLimit - documentTop) / opacityLimit : 0;
+    console.log("estou no animateTest, meu opacityLevel \xE9: " + opacityLevel + " " + documentTop);
+    var navbarAnimate = document.getElementById("fadeout-animate");
+
+    if (documentTop > 0) {
+      navBorderShow();
+      navbarAnimate.setAttribute("style", "opacity: " + opacityLevel);
+      navbarAnimate.classList.remove('animate-pulse');
+    } else {
+      navBorderHide();
+      navbarAnimate.classList.add('animate-pulse');
+    }
+  } //Fade-in Lateral do conteúdo
+
+
+  var $target = jquery_1.default('.anime-left, .anime-right'),
+      animationClass = 'anime-final';
+  var offset = jquery_1.default(window).height() * (3 / 4);
+
+  function animateScroll() {
+    var documentTop = jquery_1.default(document).scrollTop();
+    $target.each(function () {
+      var _a;
+
+      var itemTop = (_a = jquery_1.default(this).offset()) === null || _a === void 0 ? void 0 : _a.top;
+      console.log("Offset is " + offset + "\n documentTop is " + documentTop + "\n itemTop is " + itemTop);
+
+      if (documentTop > itemTop - offset) {
+        console.log('Adicionando anime-final');
+        jquery_1.default(this).addClass(animationClass);
+      } else {
+        jquery_1.default(this).removeClass(animationClass);
+      }
+    });
+  }
+
+  jquery_1.default(document).scroll(function () {
+    AnimateFadeout();
+    animateScroll();
+  });
+})();
 },{"jquery":"../node_modules/jquery/dist/jquery.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -11292,7 +11348,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57473" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54705" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
