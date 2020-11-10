@@ -1,0 +1,22 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer utilities {
+    .anime-left {
+        opacity: 0;
+        transform: translate3d(-200px,0,0);
+        transition: .5s;
+    } 
+    .anime-right {
+        opacity: 0;
+        transform: translate3d(200px,0,0);
+        transition: .5s;
+    }
+    .anime-final {
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
