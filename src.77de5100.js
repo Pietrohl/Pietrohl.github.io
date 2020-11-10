@@ -12111,16 +12111,17 @@ var lodash_throttle_1 = __importDefault(require("lodash.throttle")); //Implement
 
     if (documentTop == 0) {
       navBorderHide();
-      navbarAnimate.classList.add('animate-pulse');
-      navbarAnimate.setAttribute("style", "opacity: '1'; visibility: visible");
+      navbarAnimate.classList.add('animate-pulse', 'visible');
+      navbarAnimate.setAttribute("style", "opacity: '1'");
     } else {
       navbarAnimate.classList.remove('animate-pulse');
       navBorderShow();
+      navbarAnimate.setAttribute("style", "opacity: " + opacityLevel + ";");
 
       if (opacityLevel == 0) {
-        navbarAnimate.setAttribute("style", "opacity: " + opacityLevel + "; visibility: hidden");
+        navbarAnimate.classList.add('visible');
       } else {
-        navbarAnimate.setAttribute("style", "opacity: " + opacityLevel + "; visibility: visible");
+        navbarAnimate.classList.add('in visible');
       }
     }
   } //Fade-in Lateral do conteúdo
@@ -12184,7 +12185,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49489" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55719" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
