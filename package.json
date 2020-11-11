@@ -6,9 +6,9 @@
   "scripts": {
     "start": "parcel serve src/index.html",
     "build-css": "tailwindcss build src-css/style.css -o src/style.css",
-    "build": "build-css & tsc--noEmit & cross-env NODE_ENV=production parcel build src/index.html --public-url .",
-    "predeploy": "build",
-    "deploy": "gh-pages -d dist"
+    "build": "npm run build-css & tsc --noEmit & npx cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+    "predeploy": "npm run build",
+    "deploy": "npx gh-pages -d dist"
   },
   "repository": {
     "type": "git",

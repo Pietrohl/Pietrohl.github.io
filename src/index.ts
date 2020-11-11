@@ -69,17 +69,18 @@ import throttle from 'lodash.throttle';
         
         if(documentTop==0) {
             navBorderHide();
-            navbarAnimate.classList.add('animate-pulse');
-            navbarAnimate.setAttribute("style",`opacity: '1'; visibility: visible`);
+            navbarAnimate.classList.add('animate-pulse','visible');
+            navbarAnimate.setAttribute("style",`opacity: '1'`);
             
         } else {            
             navbarAnimate.classList.remove('animate-pulse');
             navBorderShow();
-        
+            navbarAnimate.setAttribute("style",`opacity: ${opacityLevel};`);
+
             if(opacityLevel==0) {
-                navbarAnimate.setAttribute("style",`opacity: ${opacityLevel}; visibility: hidden` );
+                navbarAnimate.classList.add('visible');
             } else {
-                navbarAnimate.setAttribute("style",`opacity: ${opacityLevel}; visibility: visible` );
+                navbarAnimate.classList.add('in visible');
             }
 
         }
