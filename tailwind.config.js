@@ -20,6 +20,9 @@ module.exports = {
       }
     },
   },
-  variants: {},
+  variants: {
+    fontSize: ['responsive'],
+    fontSize: ['responsive', 'hover']
+  },
   plugins: [],
 }
