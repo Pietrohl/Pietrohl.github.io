@@ -5,6 +5,41 @@
 @tailwind utilities;
 
 @layer utilities {
+    @responsive {
+    .carousel-text {
+        text-align: justify;
+        padding-left: 0.5rem;
+    }
+    
+    .carousel-text h1{
+        text-align: right;
+    }
+
+    .slider {
+        -webkiath: polygon(0 100%, 0 0, 100% 0, 100% 100%, 0 100%);
+        contain: content;
+        
+        overflow: hidden;
+        
+    }
+    
+    .slider-crop {
+        float: right;
+        height: 100%;
+        width: 100%;
+        shape-outside: polygon(30% 100%, 50% 0%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(30% 100%, 50% 0%, 100% 0, 100% 100%, 0 100%);
+        transition: clip-path 0.2s ease-out, shape-outside 0.2s ease-out 0.3s;
+        margin-left: 2rem;
+    }
+
+    .slider-crop:hover {
+        -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%, 0 100%);
+                clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    }
+
     .anime-left {
         opacity: 0;
         transform: translate3d(-200px,0,0);
@@ -19,4 +54,182 @@
         opacity: 1;
         transform: translate3d(0,0,0);
     }
+
+
+    /* Carousel implementation */
+      
+    #carousel {
+        margin: auto;
+        box-sizing: content-box;
+        padding: 0.1rem;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    
+    .carousel-activator {
+        display: none;
+    }
+    
+    .carousel-activator:nth-of-type(1):checked ~ #slider-track figure {
+        margin-left: 0;
+    }
+    
+    .carousel-activator:nth-of-type(2):checked ~ #slider-track figure{
+        margin-left: -100%;
+    }
+    
+    .carousel-activator:nth-of-type(3):checked ~  #slider-track figure{
+        margin-left: -200%;
+    }
+    
+    .carousel-activator:nth-of-type(4):checked ~  #slider-track figure {
+        margin-left: -300%;
+    }
+    
+    
+
+    
+    
+    
+    .slide{
+        width: 25%;
+        float: left;
+        height: 100%;
+    
+    }
+    
+    .slide:nth-of-type(1) {
+        background-size: cover;
+        background-position: center;
+        background-image: url("./portifolio.jpeg");
+    }
+    
+    .slide:nth-of-type(2) {
+        background-size: cover;
+        background-position: center;
+        background-image: url("./easy-playlist.surge.jpeg");
+    }
+    
+    .slide:nth-of-type(3) {
+        background-size: cover;
+        background-position: center;
+        background-image: url("./express-quote-server.jpeg");
+    }
+    
+    .slide:nth-of-type(4) {
+        background-size: cover;
+        background-position: center;
+        background-image: url("./virtuaula.jpeg");
+    }
+    
+    #slider-track {
+        height: 100%;
+    }
+    
+    #slider-track figure{
+        position: relative;
+        height: inherit;
+        width: 400%;
+        margin: 0;
+        left: 0;
+        transition: margin-left 0.4s ease-in-out ;
+        /* animation: 20s ease-in-out slider infinite; */
+    }
+    
+    .carousel-control {
+        height: 30px;
+        width: 30px;
+        margin-top: -15px;
+        top: 50%;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        border-width: 5px 5px 0 0;
+        border-style: solid;
+        border-color: #fafafa;
+        opacity: 0.35;
+        outline: 0;
+        z-index: 3;
+    }
+    
+    .carousel-controls {
+        display: none;
+    }
+    
+    .carousel-control:hover {
+        opacity: 1;
+    }
+    
+    .control--back {
+        left: 10px;
+      -webkit-transform: rotate(-135deg);
+              transform: rotate(-135deg);
+    }
+    
+    .control--forw {
+        right: 10px;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+    }
+    
+    .carousel-activator:nth-of-type(1):checked ~ .carousel-controls:nth-of-type(1) {
+        display: block;
+        opacity: 1;
+    }
+    
+    .carousel-activator:nth-of-type(2):checked ~ .carousel-controls:nth-of-type(2) {
+        display: block;
+        opacity: 1;
+    }
+    
+    .carousel-activator:nth-of-type(3):checked ~ .carousel-controls:nth-of-type(3) {
+        display: block;
+        opacity: 1;
+    }
+    
+    .carousel-activator:nth-of-type(4):checked ~ .carousel-controls:nth-of-type(4) {
+        display: block;
+        opacity: 1;
+    }
+    
+    .carousel-indicators {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .carousel-indicator {
+        height: 15px;
+        width: 15px;
+        border-radius: 100%;
+        display: inline-block;
+        z-index: 2;
+        cursor: pointer;
+        opacity: 0.35;
+        margin: 0 2.5px 0 2.5px;
+        background-color: rgba(182, 228, 236, 0.644);
+    }
+    
+    .carousel-indicator:hover {
+        opacity: 0.75;
+    }
+    
+    .carousel-activator:nth-of-type(1):checked ~ .carousel-indicators .carousel-indicator:nth-of-type(1) {
+        opacity: 1;
+    }
+    
+    .carousel-activator:nth-of-type(2):checked ~ .carousel-indicators .carousel-indicator:nth-of-type(2) {
+        opacity: 1;
+    }
+    
+    .carousel-activator:nth-of-type(3):checked ~ .carousel-indicators .carousel-indicator:nth-of-type(3) {
+        opacity: 1;
+    }
+    
+    .carousel-activator:nth-of-type(4):checked ~ .carousel-indicators .carousel-indicator:nth-of-type(4) {
+        opacity: 1;
+    }
+    
+    /* End of carousel implementation */
 }

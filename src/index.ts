@@ -20,8 +20,28 @@ import throttle from 'lodash.throttle';
 }());
 
 
+
+(function(){
+    let $target = $('.carousel-activator');
+    let arr = $target.map(function() {
+        return this.id;
+    });
+    let i: number = 0;
+
+    setInterval(function () {
+        i++;
+        $(`#${arr[i%arr.length]}`).prop( "checked", true );
+    }, 3000)
+
+})();
+
+
+
+
 //Implementação de funções vinculadas ao Scroll
 (function(){
+    
+    let documentTop: number;
 
     //Fade-in borda do menu de navegação
     function navBorderShow() {
@@ -57,32 +77,44 @@ import throttle from 'lodash.throttle';
         }
     }
 
+
+    function navBorderAnimate() {
+        documentTop = <number>$(<Document>document)?.scrollTop();
+        
+        if(documentTop<=0) 
+            navBorderHide();
+            
+        if(documentTop>0)
+            navBorderShow();
+
+    }
     
 
     //Fade-out do título Hero Banner
     function AnimateFadeout() {
         
-        let documentTop: number = <number>$(<Document>document)?.scrollTop();
+        documentTop = <number>$(<Document>document)?.scrollTop();
         let opacityLimit: number = window.innerHeight/2;
         let opacityLevel: number = documentTop<=(opacityLimit) ? ((opacityLimit-documentTop)/opacityLimit) : 0;        
         let navbarAnimate: HTMLElement = <HTMLElement>document.getElementById("fadeout-animate")
         
-        if(documentTop==0) {
-            navBorderHide();
+        if(documentTop==0) {            
             navbarAnimate.classList.add('animate-pulse','visible');
-            navbarAnimate.setAttribute("style",`opacity: '1'`);
-            
+            navbarAnimate.classList.remove('invisible');
+            navbarAnimate.setAttribute("style",`opacity: 1`);            
+
         } else {            
             navbarAnimate.classList.remove('animate-pulse');
-            navBorderShow();
             navbarAnimate.setAttribute("style",`opacity: ${opacityLevel};`);
 
-            if(opacityLevel==0) {
-                navbarAnimate.classList.add('visible');
+            if(opacityLevel<=0) {
+                navbarAnimate.classList.add('invisible');
+                navbarAnimate.classList.remove('visible');
+ 
             } else {
-                navbarAnimate.classList.add('in visible');
+                navbarAnimate.classList.add('visible');
+                navbarAnimate.classList.remove('invisible');
             }
-
         }
     }
 
@@ -94,7 +126,8 @@ import throttle from 'lodash.throttle';
 
     function AnimateScroll(): any  {
 
-        let documentTop: number =<number>$(<Document>document).scrollTop();
+        documentTop =<number>$(<Document>document).scrollTop();
+
         $target.each(function(){
             let itemTop = <number>$(this).offset()?.top;
             
@@ -108,17 +141,23 @@ import throttle from 'lodash.throttle';
 
 
 
+    $(document).scroll(debounce(function(){
+        navBorderAnimate();
+    },500, {leading: true}));
 
     $(document).scroll(debounce(function(){
         AnimateFadeout();
-    },10));
+    },10, {leading: true}));
 
     $(document).scroll(throttle(function(){
         AnimateScroll();
-    },200));
+    },300));
+
+   
 
     window.addEventListener('load', function(){
         AnimateScroll();
         AnimateFadeout();
+
     })
 }());
