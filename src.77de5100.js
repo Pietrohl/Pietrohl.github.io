@@ -12073,6 +12073,13 @@ var lodash_throttle_1 = __importDefault(require("lodash.throttle")); //Implement
     i++;
     jquery_1.default("#" + arr[i % arr.length]).prop("checked", true);
   }, 5000);
+})(); //implementação link para projects
+
+
+(function () {
+  jquery_1.default('#slider-track').click(function () {
+    window.location.href = 'projects.html';
+  });
 })(); //Implementação de funções vinculadas ao Scroll
 
 
