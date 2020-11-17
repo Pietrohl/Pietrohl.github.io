@@ -12,30 +12,35 @@
     <script>function a() { dataLayer.push(arguments) } window.dataLayer = window.dataLayer || [], a("js", new Date), a('config', 'G-WCEGRZF0X2'); 
     </script>
     <script src="rellax.min.js"></script>
-    
+
 </head>
 
-<body class="bg-cover bg-gray-900 leading-normal tracking-normal">
+<body class="bg-cover bg-gray-900 leading-normal tracking-normal ">
 
     <div class="flex flex-col space-x-0 space-y-0 w-full">
         <!--navbar-->
         <header class="bg-gray-900 fixed  shadow-lg  h-auto pin-t w-full z-30 ">
-            <nav class="container flex flex-no-wrap overflow-x-auto scrolling-touch sm:flex-wrap items-center mx-2 lg:my-0 text-sm sm:text-base md:text-lg justify-start lg:justify-end md:justify-center mx-auto">
-                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#introduction">Home</a> </div>
-                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#personal-info">Sobre</a> </div>
-                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#projects">Projetos</a> </div>
+            <nav
+                class="container flex flex-no-wrap overflow-x-auto scrolling-touch sm:flex-wrap items-center mx-2 lg:my-0 text-sm sm:text-base md:text-lg justify-start lg:justify-end md:justify-center mx-auto">
+                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#introduction">Home</a>
+                </div>
+                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#personal-info">Sobre</a>
+                </div>
+                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#projects">Projetos</a>
+                </div>
                 <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#skills">Skills</a> </div>
-                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#contact">Contato</a> </div>
+                <div class="hover:text-white inline-block m-4 lg:m-2 text-teal-400"> <a href="#contact">Contato</a>
+                </div>
             </nav>
-            <div  id="navbar-boder" style="margin-top: -60px;"
+            <div id="navbar-boder" style="margin-top: -60px;"
                 class="bg-gray-200 border border-teal-200 relative w-full">
             </div>
         </header>
 
-        <main class="flex-1 overflow-y-hidden p-0">
+        <main class="flex-1 overflow-y-hidden p-0 scroll-snap-y lg:scroll-snap-none">
 
             <!--Hero-->
-            <div class="flex min-h-almostscreen  my-0" id="introduction">
+            <div class="flex min-h-almostscreen  my-0" id="introduction" >
                 <div
                     class="container  z-0 flex flex-col items-center  md:flex-row justify-center md:my-24 mx-auto my-12">
                     <div class="flex flex-col items-start justify-center md:pl-24 md:pt-24 w-full pb-24 pt-12 px-6">
@@ -53,7 +58,7 @@
             </div>
 
             <!--About/Sobre-->
-            <div class="bg-cover min-h-0  bg-gray-200 " id="personal-info">
+            <div class="bg-cover min-h-0  bg-gray-200 " id="personal-info" style="scroll-snap-align: start;"> 
                 <svg viewBox="0 0 1920 75" xmlns="http://www.w3.org/2000/svg">
                     <polygon points="0,75 1920,0 0,0 0,75" class="fill-current stroke-current text-gray-900" />
                 </svg>
@@ -86,7 +91,7 @@
             </div>
 
             <!--Projetos-->
-            <div id="projects" class="container px-12 lg:px-32 pb-24 flex flex-col mx-auto justify-start my-12">
+            <div id="projects" style="scroll-snap-align: start;" class="container px-12 lg:px-32 pb-24 flex flex-col mx-auto justify-start my-12">
 
 
                 <div class="text-white anime-left text-xl my-12">
@@ -95,14 +100,15 @@
 
                 <!--Carousel-->
                 <div id="carousel" class="w-full rounded-lg anime-right">
-                    <div class="lg:slider-crop slider  border border-teal-200 relative bg-red-200 w-full" style="padding-bottom: 50%;">
+                    <div class="lg:slider-crop slider  border border-teal-200 relative bg-red-200 w-full"
+                        style="padding-bottom: 50%;">
                         <div class="object-cover inset-0 absolute w-full h-full">
                             <input type="radio" class="carousel-activator" name="carousel" id="slide_A"
-                            checked="checked" />
+                                checked="checked" />
                             <input type="radio" class="carousel-activator" name="carousel" id="slide_B">
                             <input type="radio" class="carousel-activator" name="carousel" id="slide_C">
                             <input type="radio" class="carousel-activator" name="carousel" id="slide_D">
-                            <div class="carousel-controls ">
+                            <div class=" z-10 carousel-controls ">
                                 <label class="carousel-control control--back" for="slide_D"></label>
                                 <label class="carousel-control control--forw" for="slide_B"></label>
                             </div>
@@ -118,27 +124,25 @@
                                 <label class="carousel-control control--back" for="slide_C"></label>
                                 <label class="carousel-control control--forw" for="slide_A"></label>
                             </div>
-                            <div id="slider-track">
+                            <a class='cursor-pointer' id="slider-track" href='./projects.html'>
                                 <figure>
-                                    <a href="https://pietrohl.github.io/projects.html">
                                     <div class="slide" alt="">
-                                        </div>
-                                        <div class="slide" alt="">
-                                        </div>
-                                        <div class="slide" alt="">
-                                        </div>
-                                        <div class="slide" alt="">
-                                        </div>
-                                    </a>
-                                    </figure>
-                                </div>
-                                <div class="carousel-indicators">
-                                    <label class="carousel-indicator" for="slide_A"></label>
-                                    <label class="carousel-indicator" for="slide_B"></label>
-                                    <label class="carousel-indicator" for="slide_C"></label>
-                                    <label class="carousel-indicator" for="slide_D"></label>
-                                </div>
+                                    </div>
+                                    <div class="slide" alt="">
+                                    </div>
+                                    <div class="slide" alt="">
+                                    </div>
+                                    <div class="slide" alt="">
+                                    </div>
+                                </figure>
+                            </a>
+                            <div class="carousel-indicators">
+                                <label class="carousel-indicator" for="slide_A"></label>
+                                <label class="carousel-indicator" for="slide_B"></label>
+                                <label class="carousel-indicator" for="slide_C"></label>
+                                <label class="carousel-indicator" for="slide_D"></label>
                             </div>
+                        </div>
                     </div>
                     <div class=" text-justify text-white mt-2">
                         <h1 class="text-2xl text-teal-400">FullStack Development</h1>
@@ -153,7 +157,7 @@
                 <svg viewBox="0 0 1920 75" xmlns="http://www.w3.org/2000/svg">
                     <polygon points="0,75 1920,0 0,0 0,75" class="fill-current stroke-current text-gray-900" />
                 </svg>
-                <div id="skills" class="container flex flex-grow flex-wrap justify-start py-12 items-center m-auto">
+                <div id="skills" style="scroll-snap-align: start;" class="container flex flex-grow flex-wrap justify-start py-12 items-center m-auto">
                     <p class="anime-left w-full text-center lg:text-start text-black text-3xl font-bold mb-4">SKILLS</p>
                     <div
                         class="w-full md:w-auto m-auto flex flex-wrap lg:flex-row gap-2 justify-center flex-col anime-right">

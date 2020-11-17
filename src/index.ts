@@ -1,6 +1,7 @@
 import $ from 'jquery'; 
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
+import Rellax from 'rellax';
 
 //Implementação Lazy Scroll por JQuery
 (function(){
@@ -20,7 +21,7 @@ import throttle from 'lodash.throttle';
 }());
 
 
-
+//implementação do Carousel automático
 (function(){
     let $target = $('.carousel-activator');
     let arr = $target.map(function() {
@@ -31,9 +32,20 @@ import throttle from 'lodash.throttle';
     setInterval(function () {
         i++;
         $(`#${arr[i%arr.length]}`).prop( "checked", true );
-    }, 3000)
+    }, 6000)
 
 })();
+
+
+
+//implementação link para projects
+(function () {
+    $('#slider-track').click(function() {
+        console.log('redirecionando para Projects.html')
+        window.location.href='projects.html';
+    })
+})();
+
 
 
 
@@ -138,7 +150,6 @@ import throttle from 'lodash.throttle';
             }
         })       
     }
-
 
 
     $(document).scroll(debounce(function(){

@@ -714,6 +714,10 @@ video {
   border-bottom-width: 2px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .block {
   display: block;
 }
@@ -728,10 +732,6 @@ video {
 
 .table {
   display: table;
-}
-
-.grid {
-  display: grid;
 }
 
 .flex-row {
@@ -922,10 +922,6 @@ video {
   max-width: 24rem;
 }
 
-.max-w-lg {
-  max-width: 32rem;
-}
-
 .min-h-0 {
   min-height: 0;
 }
@@ -936,11 +932,6 @@ video {
 
 .min-h-almostscreen {
   min-height: 86vh;
-}
-
-.object-contain {
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 
 .object-cover {
@@ -1177,6 +1168,10 @@ video {
   z-index: 0;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .z-30 {
   z-index: 30;
 }
@@ -1184,18 +1179,6 @@ video {
 .gap-2 {
   grid-gap: 0.5rem;
   gap: 0.5rem;
-}
-
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
-}
-
-.col-span-2 {
-  grid-column: span 2 / span 2;
 }
 
 .transform {
@@ -1328,6 +1311,13 @@ video {
           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+.scroll-snap-y {
+  -ms-scroll-snap-type: y both;
+      scroll-snap-type: y both;
+}
+
+/* Carousel implementation */
+
 .slider {
   -webkiath: polygon(0 100%, 0 0, 100% 0, 100% 100%, 0 100%);
   contain: content;
@@ -1336,13 +1326,13 @@ video {
 
 .anime-left {
   opacity: 0;
-  transform: translate3d(-200px,0,0);
+  transform: translate3d(-50px,0,0);
   transition: .5s;
 }
 
 .anime-right {
   opacity: 0;
-  transform: translate3d(200px,0,0);
+  transform: translate3d(50px,0,0);
   transition: .5s;
 }
 
@@ -1556,6 +1546,8 @@ video {
   .sm\:text-base {
     font-size: 1rem;
   }
+
+  /* Carousel implementation */
 }
 
 @media (min-width: 768px) {
@@ -1623,6 +1615,8 @@ video {
   .md\:w-auto {
     width: auto;
   }
+
+  /* Carousel implementation */
 }
 
 @media (min-width: 1024px) {
@@ -1698,6 +1692,13 @@ video {
     width: 40%;
   }
 
+  .lg\:scroll-snap-none {
+    -ms-scroll-snap-type: none;
+        scroll-snap-type: none;
+  }
+
+  /* Carousel implementation */
+
   .lg\:slider-crop {
     float: right;
     height: 100%;
@@ -1745,4 +1746,6 @@ video {
       max-width: 1280px;
     }
   }
+
+  /* Carousel implementation */
 }

@@ -6,6 +6,15 @@
 
 @layer utilities {
     @responsive {
+    
+    .scroll-snap-none {
+        scroll-snap-type: none;
+    }
+    .scroll-snap-y {
+        scroll-snap-type: y both;
+
+    }
+        /* Carousel implementation */
     .carousel-text {
         text-align: justify;
         padding-left: 0.5rem;
@@ -42,12 +51,12 @@
 
     .anime-left {
         opacity: 0;
-        transform: translate3d(-200px,0,0);
+        transform: translate3d(-50px,0,0);
         transition: .5s;
     } 
     .anime-right {
         opacity: 0;
-        transform: translate3d(200px,0,0);
+        transform: translate3d(50px,0,0);
         transition: .5s;
     }
     .anime-final {
@@ -85,11 +94,6 @@
     .carousel-activator:nth-of-type(4):checked ~  #slider-track figure {
         margin-left: -300%;
     }
-    
-    
-
-    
-    
     
     .slide{
         width: 25%;
