@@ -105,7 +105,7 @@
     .slide:nth-of-type(1) {
         background-size: cover;
         background-position: center;
-        background-image: url("./portifolio.jpeg");
+        background-image: url("./portfolio.jpeg");
     }
     
     .slide:nth-of-type(2) {

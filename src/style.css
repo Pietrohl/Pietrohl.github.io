@@ -734,6 +734,10 @@ video {
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -762,6 +766,10 @@ video {
   align-content: space-evenly;
 }
 
+.self-end {
+  align-self: flex-end;
+}
+
 .justify-start {
   justify-content: flex-start;
 }
@@ -770,8 +778,16 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-around {
   justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .flex-1 {
@@ -846,6 +862,10 @@ video {
   line-height: 1.5;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .m-4 {
   margin: 1rem;
 }
@@ -904,6 +924,10 @@ video {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
 }
 
 .mb-4 {
@@ -1380,7 +1404,7 @@ video {
 .slide:nth-of-type(1) {
   background-size: cover;
   background-position: center;
-  background-image: url("./portifolio.jpeg");
+  background-image: url("./portfolio.jpeg");
 }
 
 .slide:nth-of-type(2) {

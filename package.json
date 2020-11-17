@@ -5,9 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "build-css": "tailwindcss build src-css/style.css -o src/style.css",
-    "start": "npm run build-css & parcel serve src/index.html",
+    "dev": "npm run build-css & parcel serve src/index.html",
     "build-css-prod": "cross-env NODE_ENV=production tailwindcss build src-css/style.css -o src/style.css",
-    "build": "npm run build-css-prod & tsc --noEmit & cross-env NODE_ENV=production parcel build src/*  --public-url .",
+    "build": "npm run build-css-prod & tsc --noEmit & cross-env NODE_ENV=production parcel build src/*  --public-url /.",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -36,6 +36,7 @@
     "cross-env": "^7.0.2",
     "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-nuke-dist": "^1.0.1",
     "typescript": "^4.0.5"
   }
 }
