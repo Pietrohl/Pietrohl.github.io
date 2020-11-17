@@ -12072,7 +12072,7 @@ var lodash_throttle_1 = __importDefault(require("lodash.throttle")); //Implement
   setInterval(function () {
     i++;
     jquery_1.default("#" + arr[i % arr.length]).prop("checked", true);
-  }, 5000);
+  }, 6000);
 })(); //implementação link para projects
 
 
