@@ -10,6 +10,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+    inset: {
+     '1/2': '50%',
+    },    
+    maxWidth: {
+      min:	'min-content',
+      max:	'max-content',
+    },
       minHeight: {
         almostscreen: '86vh',
         halfscreen: '50vh',

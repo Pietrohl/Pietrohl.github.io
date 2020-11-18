@@ -39,12 +39,12 @@ import Rellax from 'rellax';
 
 
 //implementação link para projects
-(function () {
+/*(function () {
     $('#slider-track').click(function() {
         console.log('redirecionando para Projects.html')
         window.location.href='projects.html';
     })
-})();
+})();*/
 
 
 
