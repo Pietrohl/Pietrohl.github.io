@@ -150,10 +150,11 @@
         cursor: pointer;
         border-width: 5px 5px 0 0;
         border-style: solid;
-        border-color: #fafafa;
+        border-color: #285e61;
         opacity: 0.35;
         outline: 0;
         z-index: 3;
+        background-color: #93aeb0;
     }
     
     .carousel-controls {
@@ -212,7 +213,7 @@
         cursor: pointer;
         opacity: 0.35;
         margin: 0 2.5px 0 2.5px;
-        background-color: rgba(182, 228, 236, 0.644);
+        background-color: #285e61;
     }
     
     .carousel-indicator:hover {
